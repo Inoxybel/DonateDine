@@ -5,22 +5,22 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @Entity
+@Table(name = "T_GS3_Classificacao")
 public class Classificacao {
     
     @Id
     @JsonIgnore
     public String id;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_item")
+    @OneToOne(mappedBy = "classificacao", cascade = CascadeType.ALL)
     @JsonIgnore
     public Item item;
 
