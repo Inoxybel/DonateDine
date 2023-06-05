@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +28,12 @@ public class UsuarioService {
 	private TokenService tokenService;
 
 	@Autowired
-	public UsuarioService(UsuarioRepository usuarioRepository, AuthenticationManager manager, PasswordEncoder encoder, TokenService tokenService) {
+	public UsuarioService(
+		UsuarioRepository usuarioRepository, 
+		AuthenticationManager manager, 
+		PasswordEncoder encoder, 
+		TokenService tokenService
+	) {
 		this.usuarioRepository = usuarioRepository;
 		this.manager = manager;
 		this.encoder = encoder;
@@ -45,7 +51,8 @@ public class UsuarioService {
 		return usuarioSalvo;
     }
 
-	public UsuarioResponseDTO atualizar(UsuarioUpdateDTO usuario, String id) {
+	public UsuarioResponseDTO atualizar(UsuarioUpdateDTO usuario, String id) 
+	{
 		log.info("Atualizando cadastro de usuario pelo id: " + id);
 		Usuario repositoryResponse = usuarioRepository
 				.findById(id)
@@ -71,8 +78,7 @@ public class UsuarioService {
 			return new UsuarioResponseDTO(
 					respostaAtualizacao.getId(),
 					respostaAtualizacao.getNome(),
-					respostaAtualizacao.getEmail(),
-					respostaAtualizacao.getSenha()
+					respostaAtualizacao.getEmail()
 			);
 		}
 
@@ -92,7 +98,9 @@ public class UsuarioService {
 	public TokenDTO logar(LoginDTO credenciais) {
 		manager.authenticate(credenciais.toAuthentication());
 
-		return tokenService.generateToken(credenciais);
+		var usuarioId = usuarioRepository.findByEmail(credenciais.email()).get().id;
+
+		return tokenService.generateToken(credenciais, usuarioId	);
 	}
 
 	public String getUsuarioIDByEmail(String email)
