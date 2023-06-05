@@ -68,5 +68,9 @@ public class EstoqueService {
             estoque.dataCriacao
         );
     }
+
+    public long count() {
+        return estoqueRepository.count();
+    }
     
 }

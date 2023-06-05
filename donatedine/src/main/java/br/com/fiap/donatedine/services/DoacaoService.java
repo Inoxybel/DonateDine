@@ -79,4 +79,8 @@ public class DoacaoService {
 
         return doacoesResponse;
     }
+
+    public long count() {
+        return doacaoRepository.count();
+    }
 }

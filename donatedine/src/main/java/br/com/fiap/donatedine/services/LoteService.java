@@ -137,4 +137,8 @@ public class LoteService {
         return loteDtos;
     }
     
+    public long count() {
+        return loteRepository.count();
+    }
+    
 }
