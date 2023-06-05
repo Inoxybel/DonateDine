@@ -20,17 +20,18 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "T_GS3_Estoque")
+@Table(name = "T_ESTOQUES")
 public class Estoque {
     
     @Id
     @JsonIgnore
+    @Column(name = "PK_ID")
     public String id;
 
     @NotNull
     @OneToOne(optional = false)
-    @JoinColumn(name = "id_lote")
-    public Lote idLote;
+    @JoinColumn(name = "FK_LOTE_ID")
+    public Lote lote;
 
     @OneToMany(mappedBy = "estoque", cascade = CascadeType.ALL)
     @JsonIgnore
@@ -41,6 +42,6 @@ public class Estoque {
     public Doacao doacao;
 
     @NotNull
-    @Column(columnDefinition = "TIMESTAMP", nullable = false)
+    @Column(columnDefinition = "TIMESTAMP", nullable = false, name = "DATA_CRIACAO")
     public LocalDateTime dataCriacao = LocalDateTime.now();
 }

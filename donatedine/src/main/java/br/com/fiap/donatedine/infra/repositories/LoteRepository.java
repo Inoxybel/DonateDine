@@ -19,13 +19,10 @@ public interface LoteRepository extends JpaRepository<Lote, String> {
     @Query("SELECT l FROM Lote l WHERE l.unidadeMedida = ?1")
     List<Lote> findByUnidadeMedida(UnidadeMedida unidadeMedida);
 
-    @Query("SELECT l FROM Lote l WHERE l.descricao = ?1")
-    List<Lote> findByDescricao(String descricao);
-
     @Query("SELECT l FROM Lote l WHERE l.fornecedor = ?1")
     List<Lote> findByFornecedor(String fornecedor);
 
-    @Query("SELECT l FROM Lote l WHERE l.dataCriacao = ?1")
+    @Query("SELECT l FROM Lote l WHERE l.dataCriacao >= ?1")
     List<Lote> findByDataCriacao(LocalDateTime dataCriacao);
 
 }
