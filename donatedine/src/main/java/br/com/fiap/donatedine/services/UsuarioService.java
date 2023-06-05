@@ -95,6 +95,13 @@ public class UsuarioService {
 		return tokenService.generateToken(credenciais);
 	}
 
+	public String getUsuarioIDByEmail(String email)
+	{
+		var usuario = usuarioRepository.findByEmail(email).get();
+		
+		return usuario.id;
+	}
+
 	private Usuario atualizarUsuario(Usuario usuario)
     {
         log.info("Atualizando usuario: " + usuario);

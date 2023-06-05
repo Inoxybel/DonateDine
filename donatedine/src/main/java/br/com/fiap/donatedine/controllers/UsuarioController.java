@@ -80,10 +80,12 @@ public class UsuarioController {
 
         TokenDTO responseService = usuarioService.logar(credenciais);
 
+        var usuarioId = usuarioService.getUsuarioIDByEmail(credenciais.email());
+
         return EntityModel.of(
                 responseService,
                 linkTo(methodOn(UsuarioController.class).logar(credenciais)).withSelfRel(),
-                linkTo(methodOn(UsuarioController.class).cadastrar(new Usuario())).withRel("cadastrar")
+                linkTo(methodOn(UsuarioController.class).atualizar(new UsuarioUpdateDTO("novo_nome", "novo_email", "nova_senha"), usuarioId)).withRel("atualizar")
         );
     }
 }
