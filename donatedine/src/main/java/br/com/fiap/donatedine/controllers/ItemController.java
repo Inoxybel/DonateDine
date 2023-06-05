@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.fiap.donatedine.crosscutting.dtos.CreateItemRequestDTO;
 import br.com.fiap.donatedine.crosscutting.dtos.ItemResponseDTO;
 import br.com.fiap.donatedine.crosscutting.dtos.PaginationResponseDTO;
-import br.com.fiap.donatedine.models.Item;
 import br.com.fiap.donatedine.services.ItemService;
+import jakarta.validation.Valid;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -45,7 +45,7 @@ public class ItemController {
     @PostMapping("/estoque/{idEstoque}/item")
     public ResponseEntity<Object> criarItem(
         @PathVariable String idEstoque,
-        @RequestBody List<CreateItemRequestDTO> request
+        @Valid @RequestBody List<CreateItemRequestDTO> request
     )
     {
         log.info("Criando item para estoque id: " + idEstoque);

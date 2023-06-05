@@ -2,6 +2,7 @@ package br.com.fiap.donatedine.services;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.DecodedJWT;
 
 import br.com.fiap.donatedine.crosscutting.dtos.LoginDTO;
 import br.com.fiap.donatedine.crosscutting.dtos.TokenDTO;
@@ -24,12 +25,13 @@ public class TokenService {
     @Value("${jwt.secret}")
     String secret;
 
-    public TokenDTO generateToken(LoginDTO credencial) {
+    public TokenDTO generateToken(LoginDTO credencial, String id) {
         Algorithm alg = Algorithm.HMAC256(secret);
         var token = JWT.create()
                 .withSubject(credencial.email())
+                .withClaim("userId", id)
                 .withExpiresAt(Instant.now().plus(1, ChronoUnit.HOURS))
-                .withIssuer("DreamControl")
+                .withIssuer("DonateDine")
                 .sign(alg);
 
         return new TokenDTO(token, "JWT", "Bearer");
@@ -38,7 +40,7 @@ public class TokenService {
     public Usuario valideAndGetUserBy(String token) {
         Algorithm alg = Algorithm.HMAC256(secret);
         var email =  JWT.require(alg)
-                .withIssuer("DreamControl")
+                .withIssuer("DonateDine")
                 .build()
                 .verify(token)
                 .getSubject()
@@ -46,6 +48,19 @@ public class TokenService {
 
         return usuarioRepository.findByEmail(email).stream().findFirst()
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+    }
+
+    public String getUserIdFromToken(String token) {
+        token = token.substring(7); 
+        
+        Algorithm alg = Algorithm.HMAC256(secret);
+        var userId = JWT.require(alg)
+                .withIssuer("DonateDine")
+                .build()
+                .verify(token)
+                .getClaim("userId");
+
+        return userId.asString();
     }
 
 }

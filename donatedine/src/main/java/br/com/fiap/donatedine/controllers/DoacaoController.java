@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import br.com.fiap.donatedine.crosscutting.dtos.CreateDoacaoRequestDTO;
 import br.com.fiap.donatedine.crosscutting.dtos.DoacaoResponseDTO;
 import br.com.fiap.donatedine.services.DoacaoService;
+import jakarta.validation.Valid;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,7 +30,7 @@ public class DoacaoController {
     }
     
     @PostMapping("/estoque/{idEstoque}")
-    public ResponseEntity<EntityModel<DoacaoResponseDTO>> criarDoacao(@PathVariable String idEstoque, @RequestBody CreateDoacaoRequestDTO request) {
+    public ResponseEntity<EntityModel<DoacaoResponseDTO>> criarDoacao(@PathVariable String idEstoque, @Valid @RequestBody CreateDoacaoRequestDTO request) {
         var doacao = doacaoService.criarDoacao(idEstoque, request);
 
         if (doacao == null) {

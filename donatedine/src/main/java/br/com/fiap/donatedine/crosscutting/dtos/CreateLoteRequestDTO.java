@@ -3,12 +3,17 @@ package br.com.fiap.donatedine.crosscutting.dtos;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import br.com.fiap.donatedine.crosscutting.Enums.UnidadeMedida;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public record CreateLoteRequestDTO(
-    int quantidade,
-    UnidadeMedida unidadeMedida,
+    @NotNull @Min(1) int quantidade,
+    @NotNull @Enumerated(EnumType.STRING) UnidadeMedida unidadeMedida,
     String descricao,
-    String fornecedor
+    @NotBlank @NotNull String fornecedor
 ) {
     public CreateLoteRequestDTO(
         int quantidade,

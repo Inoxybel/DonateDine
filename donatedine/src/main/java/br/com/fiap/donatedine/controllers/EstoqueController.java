@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.fiap.donatedine.crosscutting.dtos.CreateEstoqueRequestDTO;
 import br.com.fiap.donatedine.crosscutting.dtos.EstoqueResponseDTO;
 import br.com.fiap.donatedine.services.EstoqueService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/estoque")
@@ -29,7 +30,7 @@ public class EstoqueController {
     }
 
     @PostMapping
-    public ResponseEntity<EntityModel<EstoqueResponseDTO>> criarEstoque(@RequestBody CreateEstoqueRequestDTO request) {
+    public ResponseEntity<EntityModel<EstoqueResponseDTO>> criarEstoque( @Valid @RequestBody CreateEstoqueRequestDTO request) {
         log.info("Solicitando criação de um novo estoque.");
     
         var estoque = estoqueService.criarEstoque(request.idLote());
