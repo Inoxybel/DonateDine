@@ -17,27 +17,28 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "T_GS3_Doacao")
+@Table(name = "T_DOACOES")
 public class Doacao {
     
     @Id
     @JsonIgnore
+    @Column(name = "PK_ID")
     public String id;
 
     @NotNull
     @OneToOne(optional = false)
-    @JoinColumn(name = "id_estoque")
+    @JoinColumn(name = "FK_ESTOQUE_ID")
     public Estoque estoque;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "DESCRICAO")
     public String descricao;
 
     @NotNull
-    @Column(nullable = false)
+    @Column(nullable = false, name = "CNPJ_DESTINATARIO")
     public String cnpjDestinatario;
 
     @NotNull
-    @Column(columnDefinition = "TIMESTAMP", nullable = false)
+    @Column(columnDefinition = "TIMESTAMP", nullable = false, name = "DATA_CRIACAO")
     public LocalDateTime dataCriacao = LocalDateTime.now();
 }
 

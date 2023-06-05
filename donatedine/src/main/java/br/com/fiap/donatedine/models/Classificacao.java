@@ -3,6 +3,7 @@ package br.com.fiap.donatedine.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
@@ -13,16 +14,18 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "T_GS3_Classificacao")
+@Table(name = "T_CLASSIFICACOES")
 public class Classificacao {
     
     @Id
     @JsonIgnore
+    @Column(name = "PK_ID")
     public String id;
 
     @OneToOne(mappedBy = "classificacao", cascade = CascadeType.ALL)
     @JsonIgnore
     public Item item;
 
+    @Column(name = "CLASSIFICACAO")
     public String classificacao;
 }

@@ -17,28 +17,29 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "T_GS3_Lote")
+@Table(name = "T_LOTES")
 public class Lote {
     
     @Id
     @JsonIgnore
+    @Column(name = "PK_ID")
     public String id;
 
     @Min(1)
     @NotNull
-    @Column(nullable = false)
+    @Column(nullable = false, name = "QUANTIDADE")
     public int quantidade;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "UNIDADE_MEDIDA")
     public UnidadeMedida unidadeMedida;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "DESCRICAO")
     public String descricao;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "FORNECEDOR")
     public String fornecedor;
 
     @NotNull
-    @Column(columnDefinition = "TIMESTAMP", nullable = false)
+    @Column(columnDefinition = "TIMESTAMP", nullable = false, name = "DATA_CRIACAO")
     public LocalDateTime dataCriacao = LocalDateTime.now();
 }

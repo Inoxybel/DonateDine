@@ -1,6 +1,7 @@
 package br.com.fiap.donatedine.infra.repositories;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -15,8 +16,8 @@ public interface UsuarioRepository extends JpaRepository<Usuario, String> {
     List<Usuario> findByNome(String nome);
 
     @Query("SELECT u FROM Usuario u WHERE u.email = ?1")
-    List<Usuario> findByEmail(String email);
+    Optional<Usuario> findByEmail(String email);
 
     @Query("SELECT u FROM Usuario u WHERE u.email = ?1 AND u.senha = ?2")
-    List<Usuario> findByEmailAndSenha(String email, String senha);
+    Optional<Usuario> findByEmailAndSenha(String email, String senha);
 }
