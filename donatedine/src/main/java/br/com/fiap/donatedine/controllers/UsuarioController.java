@@ -48,7 +48,7 @@ public class UsuarioController {
     {
         var usuarioCadastrado = usuarioService.cadastrar(usuario);
 
-        var responseDTO = new UsuarioResponseDTO(usuarioCadastrado.getId(), usuarioCadastrado.getNome(), usuarioCadastrado.getEmail(), usuarioCadastrado.getSenha());
+        var responseDTO = new UsuarioResponseDTO(usuarioCadastrado.getId(), usuarioCadastrado.getNome(), usuarioCadastrado.getEmail());
 
         var entityModel = EntityModel.of(
                 responseDTO,

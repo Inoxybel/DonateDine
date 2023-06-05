@@ -57,7 +57,6 @@
     "id": "0a0619c2-9cc6-4334-9822-88f50f49502f",
     "nome": "Postman",
     "email": "postman@postman.com",
-    "senha": "$2a$10$6I1pPyKTnLMZ2KF330l87OfnwANuuS4UARoHu.UxSh55lUBqBIfy.",
     "_links": {
         "self": {
             "href": "http://localhost:8080/api/usuario/cadastrar"
@@ -105,7 +104,6 @@
     "id": "0a0619c2-9cc6-4334-9822-88f50f49502f",
     "nome": "Postman",
     "email": "postman@postman.com",
-    "senha": "$2a$10$6I1pPyKTnLMZ2KF330l87OfnwANuuS4UARoHu.UxSh55lUBqBIfy.",
     "_links": {
         "self": {
             "href": "http://localhost:8080/api/usuario/cadastrar"

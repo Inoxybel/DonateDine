@@ -78,8 +78,7 @@ public class UsuarioService {
 			return new UsuarioResponseDTO(
 					respostaAtualizacao.getId(),
 					respostaAtualizacao.getNome(),
-					respostaAtualizacao.getEmail(),
-					respostaAtualizacao.getSenha()
+					respostaAtualizacao.getEmail()
 			);
 		}
 
