@@ -1,0 +1,582 @@
+{
+	"info": {
+		"_postman_id": "0e31b82b-1712-4906-b67b-774b883348a1",
+		"name": "GS1 - DonateDine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "18450097",
+		"_collection_link": "https://grey-satellite-467230.postman.co/workspace/My-Workspace~833d93fc-e251-41e0-8587-ab2209288c1d/collection/18450097-0e31b82b-1712-4906-b67b-774b883348a1?action=share&creator=18450097&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Lote",
+			"item": [
+				{
+					"name": "Criar novo Lote",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantidade\": 10,\r\n    \"unidade_medida\": \"KILOGRAMA\",\r\n    \"descricao\": \"frutas diversas\",\r\n    \"fornecedor\": \"FIAP\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/lote"
+					},
+					"response": []
+				},
+				{
+					"name": "Recuperar Lote",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/lote/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"lote",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3f157605-b9be-4da2-93f5-62df54380bc4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recuperar Lotes por Quantidade",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/lote/quantidade/:quantidade",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"lote",
+								"quantidade",
+								":quantidade"
+							],
+							"variable": [
+								{
+									"key": "quantidade",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recuperar Lotes por Unidade de Medida",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/lote/unidademedida/:unidademedida",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"lote",
+								"unidademedida",
+								":unidademedida"
+							],
+							"variable": [
+								{
+									"key": "unidademedida",
+									"value": "KILOGRAMA"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recuperar Lotes por Fornecedor",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/lote/fornecedor/:fornecedor",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"lote",
+								"fornecedor",
+								":fornecedor"
+							],
+							"variable": [
+								{
+									"key": "fornecedor",
+									"value": "FIAP"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recuperar Lotes a partir da Data de Criação",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/lote/datacriacao/:datacriacao",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"lote",
+								"datacriacao",
+								":datacriacao"
+							],
+							"variable": [
+								{
+									"key": "datacriacao",
+									"value": "2023-06-01T12:30:00"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Estoque",
+			"item": [
+				{
+					"name": "Criar novo Estoque",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id_lote\": \"8bf2e0e1-e536-4208-8dd2-1601d3a67e6f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/estoque"
+					},
+					"response": []
+				},
+				{
+					"name": "Recuperar Estoque",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/estoque/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"estoque",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "7a2e4a10-dac3-4314-87a1-806015e364f2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Cadastrar Usuário",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Postman\",\r\n    \"email\": \"postman@postman.com\",\r\n    \"senha\": \"Senha123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/usuario/cadastrar"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Usuário",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Post man\",\r\n    \"email\": \"postman@email.com\",\r\n    \"senha\": \"Senha123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/usuario/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"usuario",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "e0569e7c-7cf3-48a5-8bf0-285bb47f5437"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Realizar Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.environment.set(\"token\", jsonData.token);\r",
+									"} else {\r",
+									"    console.log('Login failed: ' + pm.response.reason);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"postman@postman.com\",\r\n    \"senha\": \"Senha123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/usuario/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Item",
+			"item": [
+				{
+					"name": "Criar novo item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"nome\": \"banana\",\r\n        \"path_imagem\": \"C:\\\\Users\\\\thdev\\\\Documentos\\\\Fiap\\\\GLOBAL SOLUTION 1\\\\AI\\\\Classificacao\\\\Img1.png\",\r\n        \"classificacao\": \"Boa\"\r\n    },\r\n    {\r\n        \"nome\": \"banana\",\r\n        \"path_imagem\": \"C:\\\\Users\\\\thdev\\\\Documentos\\\\Fiap\\\\GLOBAL SOLUTION 1\\\\AI\\\\Classificacao\\\\Img2.png\",\r\n        \"classificacao\": \"Ruim\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/estoque/:idEstoque/item",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"estoque",
+								":idEstoque",
+								"item"
+							],
+							"variable": [
+								{
+									"key": "idEstoque",
+									"value": "7a2e4a10-dac3-4314-87a1-806015e364f2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recuperar Todos Itens do Estoque",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/estoque/:idEstoque/itens",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"estoque",
+								":idEstoque",
+								"itens"
+							],
+							"variable": [
+								{
+									"key": "idEstoque",
+									"value": "7a2e4a10-dac3-4314-87a1-806015e364f2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recuperar Um Item do Estoque",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/estoque/:idEstoque/item/:idItem",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"estoque",
+								":idEstoque",
+								"item",
+								":idItem"
+							],
+							"variable": [
+								{
+									"key": "idEstoque",
+									"value": "7a2e4a10-dac3-4314-87a1-806015e364f2"
+								},
+								{
+									"key": "idItem",
+									"value": "3339dbc8-48f1-4d5e-8a25-7f01bfc8fe30"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Doacao",
+			"item": [
+				{
+					"name": "Criar nova Doação",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricao\":\"Doação feita para a igreja Tal localizada no endereco XPTO e recebido por Fulano de Tal\",\r\n    \"cnpj_destinatario\":\"22.111.111.0001/11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/doacao/estoque/:idEstoque",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"doacao",
+								"estoque",
+								":idEstoque"
+							],
+							"variable": [
+								{
+									"key": "idEstoque",
+									"value": "cfdce258-83af-440b-8986-f38476a1366f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recuperar uma Doação",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/doacao/:idDoacao",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"doacao",
+								":idDoacao"
+							],
+							"variable": [
+								{
+									"key": "idDoacao",
+									"value": "e7488153-7948-4679-ae73-9ac5e7beb345"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Estatisticas",
+			"item": [
+				{
+					"name": "Recuperar Estatísticas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/api/status"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
