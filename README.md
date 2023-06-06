@@ -9,6 +9,69 @@ Essa API tem como objetivo ser um canal de comunicação para a IA que irá clas
 ![Arquitetura](./etc/arquitetura_friendly.png)
 ---
 
+# Intruções
+
+Para utilizar o projeto, faça o clone do projeto abrindo o terminal na pasta que deseja que o projeto seja copiado e executando o seguinte comando:
+
+    git clone https://github.com/Inoxybel/DonateDine.git
+
+Após clonar o repositório, você irá precisar das seguintes dependências instaladas:
+
+#### - Para rodar as aplicações direto em um container Docker:
+
+Docker Desktop:
+    
+1 - Siga as intruções abaixo de acorco com seu sistema para instalar:
+
+    Windows: https://docs.docker.com/desktop/install/windows-install/
+
+    Linux: https://docs.docker.com/desktop/install/linux-install/
+
+    Mac: https://docs.docker.com/desktop/install/mac-install/
+
+2 - Para mais informações olhe a documentação oficial do Docker no link: https://docs.docker.com/desktop/
+
+3 - Com o docker desktop instalado e em execução na máquina, abra o terminal no diretório raíz do projeto (o que possui o arquivo docker-compose.yml) e execute o comando:
+
+        docker-compose up -d
+
+4 - Aguarde todo projeto ser configurado e executado, e você poderá acessar o swagger da API pelo link: 
+
+        http://localhost:8080/swagger-ui.html
+	
+Ou fazer requisições para os a http://localhost:8080/api/ + endpoints mencionados logo abaixo na próxima sessão.
+
+PS: Em alguns caos pode ser que o container da API fechará. Isso ocorre por conta do container do banco de dados não ter sido criado antes. Para resolver basta rodar (apertar no botão PLAY) o container da API novamente após o container do banco de dados ter sido criado que ela se conectará ao banco com sucesso.
+
+5 - A projeto nesse ponto já está pronta para uso, agora você pode utilizar o Postman para fazer as requisições para a API e receber as respostas:
+
+Acesse o link para efetuar o download da ferramenta: https://www.postman.com/downloads/
+
+Após baixar, faça a instalação, após concluída a instalação abra o Postman e siga os passos abaixo:
+
+a - Clique em import/importar
+![passo1](./etc/howto/postman1.png)
+
+b - Na janela que abrir, arraste para dentro dela os arquivos 
+	GS3 - DonateDine.postman_coolection.json
+	postman_environment.DEVELOPMENT.json
+
+que estão na pasta /etc
+
+![passo2](./etc/howto/postman2.png)
+
+c - Clique em importar
+![passo3](./etc/howto/postman3.png)
+	
+d - No canto superior direito, selecione o ambiente "Desenvolvimento"
+![passo4](./etc/howto/postman4.png)
+
+Pronto, agora você tem tudo o que precisa para executar a API usando o Postman, para um HowTo mais intuitivo confira o link do vídeo abaixo:
+
+Link da aplicação sendo clonada e executada: https://youtu.be/HASH
+
+---
+
 ## Endpoints
 - Usuário
   - [Cadastrar](#cadastrar-usuário)
