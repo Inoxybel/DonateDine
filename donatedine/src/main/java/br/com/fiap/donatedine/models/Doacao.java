@@ -22,7 +22,7 @@ public class Doacao {
     
     @Id
     @JsonIgnore
-    @Column(name = "PK_ID")
+    @Column(name = "PK_ID", columnDefinition = "CHAR(36)")
     public String id;
 
     @NotNull
@@ -30,7 +30,7 @@ public class Doacao {
     @JoinColumn(name = "FK_ESTOQUE_ID")
     public Estoque estoque;
 
-    @Column(nullable = false, name = "DESCRICAO")
+    @Column(nullable = true, name = "DESCRICAO")
     public String descricao;
 
     @NotNull

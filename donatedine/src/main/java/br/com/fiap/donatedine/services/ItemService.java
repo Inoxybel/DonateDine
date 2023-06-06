@@ -2,7 +2,6 @@ package br.com.fiap.donatedine.services;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -104,7 +103,7 @@ public class ItemService {
             classificacao.setItem(item);
             classificacaoService.salvar(classificacao);
     
-            estoque.items.add(item);
+            estoque.itens.add(item);
     
             items.add(new ItemResponseDTO(
                 item.id, 

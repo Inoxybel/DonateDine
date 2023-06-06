@@ -19,13 +19,13 @@ public class Classificacao {
     
     @Id
     @JsonIgnore
-    @Column(name = "PK_ID")
+    @Column(name = "PK_ID", columnDefinition = "CHAR(36)")
     public String id;
 
     @OneToOne(mappedBy = "classificacao", cascade = CascadeType.ALL)
     @JsonIgnore
     public Item item;
 
-    @Column(name = "CLASSIFICACAO")
+    @Column(nullable = false, name = "CLASSIFICACAO")
     public String classificacao;
 }

@@ -25,7 +25,7 @@ public class Estoque {
     
     @Id
     @JsonIgnore
-    @Column(name = "PK_ID")
+    @Column(name = "PK_ID", columnDefinition = "CHAR(36)")
     public String id;
 
     @NotNull
@@ -35,7 +35,7 @@ public class Estoque {
 
     @OneToMany(mappedBy = "estoque", cascade = CascadeType.ALL)
     @JsonIgnore
-    public List<Item> items;
+    public List<Item> itens;
 
     @OneToOne(mappedBy = "estoque")
     @JsonIgnore

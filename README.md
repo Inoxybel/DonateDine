@@ -1,9 +1,12 @@
 # Descrição
 
+Essa API tem como objetivo ser um canal de comunicação para a IA que irá classificar as imagens dos alimentos conseguir persistir o resultado de seu trabalho no banco de dados, como também para alguma interface visual como a aplicação mobile desenvolvida que fará a consulta desses dados com objetivos informativos.
+
 ---
 
 # Arquitetura do projeto
 
+![Arquitetura](./etc/arquitetura_friendly.png)
 ---
 
 ## Endpoints
