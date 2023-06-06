@@ -25,7 +25,7 @@ public class Item {
     
     @Id
     @JsonIgnore
-    @Column(name = "PK_ID")
+    @Column(name = "PK_ID", columnDefinition = "CHAR(36)")
     public String id;
     
     @ManyToOne(fetch = FetchType.EAGER, optional = false)

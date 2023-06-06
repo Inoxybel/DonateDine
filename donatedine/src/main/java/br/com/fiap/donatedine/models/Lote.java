@@ -22,7 +22,7 @@ public class Lote {
     
     @Id
     @JsonIgnore
-    @Column(name = "PK_ID")
+    @Column(name = "PK_ID", columnDefinition = "CHAR(36)")
     public String id;
 
     @Min(1)
@@ -33,7 +33,7 @@ public class Lote {
     @Column(nullable = false, name = "UNIDADE_MEDIDA")
     public UnidadeMedida unidadeMedida;
 
-    @Column(nullable = false, name = "DESCRICAO")
+    @Column(nullable = true, name = "DESCRICAO")
     public String descricao;
 
     @Column(nullable = false, name = "FORNECEDOR")

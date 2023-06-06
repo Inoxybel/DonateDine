@@ -29,7 +29,7 @@ public class Usuario implements UserDetails {
     
     @Id
     @JsonIgnore
-    @Column(name = "PK_ID")
+    @Column(name = "PK_ID", columnDefinition = "CHAR(36)")
     public String id;
 
     @NotNull
