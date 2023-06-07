@@ -2,6 +2,11 @@
 
 Essa API tem como objetivo ser um canal de comunicação para a IA que irá classificar as imagens dos alimentos conseguir persistir o resultado de seu trabalho no banco de dados, como também para alguma interface visual como a aplicação mobile desenvolvida que fará a consulta desses dados com objetivos informativos.
 
+Nossa solução macro na qual o projeto desse repositório faz parte, utiliza inteligência artificial com reconhecimento de imagem para automatizar o processo de identificação e classificação de alimentos. Através de análise de imagens, a IA identifica sinais de deterioração e qualidade dos alimentos, permitindo uma triagem mais rápida e precisa, sem a necessidade de mão de obra humana, na qual é muito presente nesses processos hoje em projetos sociais como os apresentados na abertura da Global Solution. 
+Nosso objetivo é viabilizar o acesso a tecnologia para esses projetos para fortalecê-los, melhorando sua efetividade e assim impactando positivamente o combate a fome, garantindo que alimentos adequados sejam doados para pessoas em situação de vulnerabilidade.
+
+Link do vídeo pitch: https://youtu.be/QGc6F8fzSOE
+
 ---
 
 # Arquitetura do projeto
