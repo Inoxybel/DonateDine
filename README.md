@@ -9,6 +9,12 @@ Essa API tem como objetivo ser um canal de comunicação para a IA que irá clas
 ![Arquitetura](./etc/arquitetura_friendly.png)
 ---
 
+# Diagrama de Classe
+
+![Diagrama](./etc/diagrama_classses.png)
+
+---
+
 ## Endpoints
 - Usuário
   - [Cadastrar](#cadastrar-usuário)
