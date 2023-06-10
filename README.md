@@ -14,6 +14,11 @@ Link do vídeo pitch: https://youtu.be/QGc6F8fzSOE
 ![Arquitetura](./etc/arquitetura_friendly.png)
 ---
 
+# Diagrama de Classe
+
+![Diagrama](./etc/diagrama_classses.png)
+---
+
 # Intruções
 
 Para utilizar o projeto, faça o clone do projeto abrindo o terminal na pasta que deseja que o projeto seja copiado e executando o seguinte comando:
